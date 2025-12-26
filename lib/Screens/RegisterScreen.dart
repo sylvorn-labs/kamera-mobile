@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:kamera/Screens/LoginScreen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -159,11 +161,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  socialButton(Icons.g_mobiledata),
+                  socialButton(FontAwesomeIcons.google),
                   const SizedBox(width: 16),
-                  socialButton(Icons.apple),
+                  socialButton(FontAwesomeIcons.apple),
                   const SizedBox(width: 16),
-                  socialButton(Icons.facebook),
+                  socialButton(FontAwesomeIcons.facebook),
                 ],
               ),
 
@@ -172,13 +174,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
               // Login Link
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text("Already have an account? "),
-                  Text(
-                    "Login",
-                    style: TextStyle(
-                      color: Color(0xFF1677FF),
-                      fontWeight: FontWeight.bold,
+                children:[
+                  Text("Already have an account? ",style: TextStyle(fontSize: 16),),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+                    },
+                    child: Text(
+                      "Login",
+                      style: TextStyle(
+                        color: Color(0xFF1677FF),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ],
